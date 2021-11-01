@@ -1,0 +1,44 @@
+
+
+batch 5800, loss:  3.41
+accuracy:  0.06
+batch 5900, loss:  3.51
+accuracy:  0.06
+batch 6000, loss:  3.56
+accuracy:  0.07
+batch 6100, loss:  3.62
+accuracy:  0.07
+batch 6200, loss:  3.60
+accuracy:  0.07
+epoch: 1/5 | time: 61m
+Traceback (most recent call last):
+  File "run.py", line 59, in <module>
+    main()
+  File "run.py", line 55, in main
+    padding_index=0, checkpoint_path=checkpoint)
+  File "/home/anhtrangchip/code/lab/pno-ai/train/train.py", line 150, in train
+    y_hat = model(x, x_mask).transpose(1, 2)
+  File "/home/anhtrangchip/anaconda3/envs/magenta/lib/python3.7/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/anhtrangchip/code/lab/pno-ai/model/transformer.py", line 74, in forward
+    x  = layer(x, mask)
+  File "/home/anhtrangchip/anaconda3/envs/magenta/lib/python3.7/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/anhtrangchip/code/lab/pno-ai/model/transformer.py", line 101, in forward
+    attn = self.self_attn(x, mask)
+  File "/home/anhtrangchip/anaconda3/envs/magenta/lib/python3.7/site-packages/torch/nn/modules/module.py", line 722, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/anhtrangchip/code/lab/pno-ai/model/attention.py", line 68, in forward
+    scores = scores + SRel
+RuntimeError: CUDA out of memory. Tried to allocate 256.00 MiB (GPU 0; 5.94 GiB
+total capacity; 4.56 GiB already allocated; 211.75 MiB free; 4.88 GiB reserved in total by PyTorch)
+(magenta) anhtrangchip@anhtrangchip-Inspiron-7577:~/code/lab/pno-ai$ scp
+usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+(magenta) anhtrangchip@anhtrangchip-Inspiron-7577:~/code/lab/pno-ai$ scp
+usage: scp [-346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+(magenta) anhtrangchip@anhtrangchip-Inspiron-7577:~/code/lab/pno-ai$ python magenta/models/performance_rnn/performance_rnn_generate.py
+
